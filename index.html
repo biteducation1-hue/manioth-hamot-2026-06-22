@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥 מניות חמות | 22 ביוני 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --bg3: #21262d;
+      --green: #26c281;
+      --red: #e74c3c;
+      --accent: #58a6ff;
+      --yellow: #ffc400;
+      --text: #e6edf3;
+      --text2: #8b949e;
+      --border: #30363d;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      direction: rtl;
+      min-height: 100vh;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      background: linear-gradient(160deg, #0d1117 0%, #161b22 60%, #0d1f3c 100%);
+      border-bottom: 2px solid var(--border);
+      padding: 36px 24px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(88,166,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-emoji {
+      font-size: 3rem;
+      line-height: 1;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .header h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .header-meta {
+      color: var(--text2);
+      font-size: 0.92rem;
+      margin-top: 4px;
+    }
+    .header-brand {
+      display: inline-block;
+      margin-top: 10px;
+      background: rgba(88,166,255,0.1);
+      border: 1px solid rgba(88,166,255,0.25);
+      border-radius: 20px;
+      padding: 4px 16px;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* ===== STATS ROW ===== */
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      flex: 1;
+      min-width: 100px;
+      max-width: 180px;
+      text-align: center;
+      padding: 18px 12px;
+      border-left: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-left: none; }
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--text);
+    }
+    .stat-value.g { color: var(--green); }
+    .stat-value.r { color: var(--red); }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text2);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* ===== SECTION HEADER ===== */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 22px 20px 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text2);
+      max-width: 1420px;
+      margin: 0 auto;
+    }
+    .section-header::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .section-header.longs { color: var(--green); }
+    .section-header.shorts { color: var(--red); }
+
+    /* ===== GRID ===== */
+    .stocks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 14px;
+      padding: 8px 16px 20px;
+      max-width: 1420px;
+      margin: 0 auto;
+    }
+
+    /* ===== CARD ===== */
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+    }
+    .card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(88,166,255,0.15), 0 8px 24px rgba(0,0,0,0.4);
+      transform: translateY(-2px);
+    }
+    .card.short:hover {
+      border-color: var(--red);
+      box-shadow: 0 0 0 1px rgba(231,76,60,0.15), 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px 12px;
+      background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+    }
+    .card-header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .ticker {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--accent);
+      background: rgba(88,166,255,0.08);
+      padding: 4px 10px;
+      border-radius: 7px;
+    }
+    .card.short .ticker {
+      color: var(--red);
+      background: rgba(231,76,60,0.08);
+    }
+    .company {
+      font-size: 0.82rem;
+      color: var(--text2);
+      font-weight: 400;
+      max-width: 160px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .exchange-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--text2);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 5px;
+      letter-spacing: 0.5px;
+    }
+    .tv-link {
+      display: inline-flex;
+      align-items: center;
+      font-size: 1.1rem;
+      text-decoration: none;
+      opacity: 0.65;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .tv-link:hover { opacity: 1; transform: scale(1.2); }
+
+    /* ===== CHART AREA ===== */
+    .chart-area {
+      height: 175px;
+      background: #0a0d14;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .chart-area a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+    }
+    .chart-svg-wrap {
+      width: 100%;
+      height: 100%;
+    }
+    .chart-hint {
+      font-size: 0.7rem;
+      color: var(--text2);
+      text-align: center;
+      padding: 4px 12px;
+      background: rgba(0,0,0,0.4);
+      border-top: 1px solid #1a1f27;
+    }
+
+    /* ===== TAGS ===== */
+    .tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 10px 14px 6px;
+    }
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 5px;
+      background: rgba(88,166,255,0.1);
+      color: var(--accent);
+      border: 1px solid rgba(88,166,255,0.2);
+    }
+    .tag.short {
+      background: rgba(231,76,60,0.1);
+      color: var(--red);
+      border-color: rgba(231,76,60,0.25);
+    }
+    .wait-chip {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 5px;
+      background: rgba(255,196,0,0.08);
+      color: var(--yellow);
+      border: 1px solid rgba(255,196,0,0.2);
+    }
+    .ratio-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 5px;
+      background: rgba(38,194,129,0.1);
+      color: var(--green);
+      border: 1px solid rgba(38,194,129,0.25);
+    }
+    .ratio-badge.short {
+      background: rgba(231,76,60,0.1);
+      color: var(--red);
+      border-color: rgba(231,76,60,0.25);
+    }
+
+    /* ===== ANALYSIS TEXT ===== */
+    .analysis {
+      padding: 10px 14px 16px;
+      font-size: 0.87rem;
+      line-height: 1.75;
+      color: #c9d1d9;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 32px 20px 40px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .risk-warning {
+      background: rgba(255,196,0,0.06);
+      border: 1px solid rgba(255,196,0,0.18);
+      border-radius: 10px;
+      padding: 16px 22px;
+      max-width: 700px;
+      margin: 0 auto 16px;
+      font-size: 0.83rem;
+      color: #ffc400;
+      line-height: 1.7;
+    }
+    .footer-copy {
+      color: var(--text2);
+      font-size: 0.78rem;
+      margin-top: 10px;
+    }
+
+    /* ===== LIGHTBOX ===== */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 92vw;
+      max-height: 88vh;
+      border-radius: 10px;
+      box-shadow: 0 0 60px rgba(0,0,0,0.8);
+    }
+    #lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      font-size: 1.6rem;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      background: rgba(255,255,255,0.08);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    #lightbox-close:hover { background: rgba(255,255,255,0.18); }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 600px) {
+      .header h1 { font-size: 1.5rem; }
+      .stocks-grid { grid-template-columns: 1fr; padding: 8px; gap: 10px; }
+      .stat-item { padding: 14px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLb()">
+  <div id="lightbox-close" onclick="closeLb()">✕</div>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <span class="header-emoji">🔥</span>
+  <h1>מניות חמות לשבוע הקרוב</h1>
+  <div class="header-meta">22 ביוני 2026 | ניתוח טכני שבועי</div>
+  <span class="header-brand">📊 CyclesTrading</span>
+</header>
+
+<!-- ===== STATS ===== -->
+<div class="stats-row">
+  <div class="stat-item">
+    <div class="stat-value">14</div>
+    <div class="stat-label">סה"כ מניות</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-value g">12</div>
+    <div class="stat-label">לונג 📈</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-value r">2</div>
+    <div class="stat-label">שורט 📉</div>
+  </div>
+</div>
+
+<!-- ===== LONGS ===== -->
+<div class="section-header longs">📈&nbsp; לונג — מניות לקנייה</div>
+<div class="stocks-grid">
+
+  <!-- AMZN -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">AMZN</span>
+        <div>
+          <div class="company">Amazon</div>
+          <span class="exchange-badge">NASDAQ</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3AAMZN" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3AAMZN" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <!-- Grid lines -->
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <!-- Price line -->
+          <polyline points="0,140 40,130 80,110 120,95 160,105 200,85 240,75 280,80 320,65 360,60 400,55" fill="none" stroke="#26c281" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Fill -->
+          <polygon points="0,140 40,130 80,110 120,95 160,105 200,85 240,75 280,80 320,65 360,60 400,55 400,175 0,175" fill="url(#g-amzn)" opacity="0.25"/>
+          <!-- Fibonacci level -->
+          <line x1="0" y1="95" x2="400" y2="95" stroke="#58a6ff" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+          <text x="8" y="91" fill="#58a6ff" font-size="9" font-family="Heebo,sans-serif" opacity="0.7">Fib 50%</text>
+          <!-- Support line -->
+          <line x1="0" y1="130" x2="400" y2="130" stroke="#ffc400" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+          <!-- Ticker watermark -->
+          <text x="200" y="100" fill="rgba(255,255,255,0.04)" font-size="52" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">AMZN</text>
+          <!-- TV icon -->
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+          <defs>
+            <linearGradient id="g-amzn" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#26c281"/>
+              <stop offset="100%" stop-color="#26c281" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag">תמיכה</span>
+      <span class="tag">פיבו 50%</span>
+      <span class="ratio-badge">🎯 יחס 1:2</span>
+    </div>
+    <div class="analysis">המחיר עדיין יושב על רמת תמיכה משמעותית. בשבוע שעבר המניה נגעה ברמת פיבונאצ'י 50% והחלה לנוע כלפי מעלה. כל עוד התמיכה נשמרת, המניה ממשיכה להיות רלוונטית עם יחס סיכוי-סיכון פוטנציאלי של כ-1:2.</div>
+  </div>
+
+  <!-- BJ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">BJ</span>
+        <div>
+          <div class="company">BJ's Wholesale</div>
+          <span class="exchange-badge">NYSE</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3ABJ" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3ABJ" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <!-- Price declining toward support -->
+          <polyline points="0,45 40,55 80,65 120,72 160,78 200,85 240,92 280,98 320,105 360,112 400,118" fill="none" stroke="#58a6ff" stroke-width="2" stroke-linejoin="round"/>
+          <polygon points="0,45 40,55 80,65 120,72 160,78 200,85 240,92 280,98 320,105 360,112 400,118 400,175 0,175" fill="url(#g-bj)" opacity="0.2"/>
+          <line x1="0" y1="118" x2="400" y2="118" stroke="#ffc400" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+          <line x1="0" y1="118" x2="400" y2="118" stroke="#26c281" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+          <text x="8" y="114" fill="#26c281" font-size="9" font-family="Heebo,sans-serif" opacity="0.7">Fib 38.2% + תמיכה</text>
+          <text x="200" y="100" fill="rgba(255,255,255,0.04)" font-size="60" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">BJ</text>
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+          <defs>
+            <linearGradient id="g-bj" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#58a6ff"/>
+              <stop offset="100%" stop-color="#58a6ff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag">תמיכה</span>
+      <span class="tag">פיבו 38.2%</span>
+      <span class="wait-chip">⏳ ממתין לאזור תמיכה</span>
+      <span class="ratio-badge">🎯 יחס 1:4</span>
+    </div>
+    <div class="analysis">המניה מתקרבת לאזור תמיכה משמעותי. ברמה החודשית ניתן לראות שילוב מעניין של אזור תמיכה יחד עם פיבונאצ'י 38.2%. במידה והמחיר יגיע לאזור, מתקבל פוטנציאל לעסקה ביחס סיכוי-סיכון של כ-1:4.</div>
+  </div>
+
+  <!-- CCJ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">CCJ</span>
+        <div>
+          <div class="company">Cameco</div>
+          <span class="exchange-badge">NYSE</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3ACCJ" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3ACCJ" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <polyline points="0,130 40,120 80,100 120,85 160,90 200,75 240,60 280,50 320,55 360,45 400,70" fill="none" stroke="#26c281" stroke-width="2" stroke-linejoin="round"/>
+          <polygon points="0,130 40,120 80,100 120,85 160,90 200,75 240,60 280,50 320,55 360,45 400,70 400,175 0,175" fill="url(#g-ccj)" opacity="0.2"/>
+          <line x1="0" y1="105" x2="400" y2="105" stroke="#ffc400" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+          <text x="8" y="101" fill="#ffc400" font-size="9" font-family="Heebo,sans-serif" opacity="0.7">~$104 — אזור מעקב</text>
+          <text x="200" y="100" fill="rgba(255,255,255,0.04)" font-size="52" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">CCJ</text>
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+          <defs>
+            <linearGradient id="g-ccj" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#26c281"/>
+              <stop offset="100%" stop-color="#26c281" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag">תמיכה</span>
+      <span class="wait-chip">⏳ ממתין לתיקון ~$104</span>
+      <span class="ratio-badge">🎯 יחס 1:3.5</span>
+    </div>
+    <div class="analysis">המחיר עדיין שומר על רמת התמיכה, אך לאחר העלייה האחרונה עדיף להמתין לתיקון נוסף. אזור מעניין למעקב נמצא סביב 104 דולר, שם עשויה להיווצר הזדמנות ביחס סיכוי-סיכון של כ-1:3.5.</div>
+  </div>
+
+  <!-- DY -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">DY</span>
+        <div>
+          <div class="company">Dycom Industries</div>
+          <span class="exchange-badge">NYSE</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3ADY" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3ADY" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <!-- Strong uptrend -->
+          <polyline points="0,155 40,145 80,130 120,115 160,100 200,85 240,68 280,52 320,40 360,32 400,28" fill="none" stroke="#26c281" stroke-width="2.5" stroke-linejoin="round"/>
+          <polygon points="0,155 40,145 80,130 120,115 160,100 200,85 240,68 280,52 320,40 360,32 400,28 400,175 0,175" fill="url(#g-dy)" opacity="0.2"/>
+          <!-- Uptrend line -->
+          <line x1="0" y1="155" x2="400" y2="28" stroke="#26c281" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+          <line x1="0" y1="100" x2="400" y2="100" stroke="#ffc400" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+          <text x="8" y="96" fill="#ffc400" font-size="9" font-family="Heebo,sans-serif" opacity="0.7">$439-440 — אזור כניסה</text>
+          <text x="200" y="100" fill="rgba(255,255,255,0.04)" font-size="60" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">DY</text>
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+          <defs>
+            <linearGradient id="g-dy" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#26c281"/>
+              <stop offset="100%" stop-color="#26c281" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag">מגמת עלייה</span>
+      <span class="wait-chip">⏳ ממתין לחזרה $439-440</span>
+      <span class="ratio-badge">🎯 יחס 1:4</span>
+    </div>
+    <div class="analysis">מגמת העלייה נותרת חזקה וברורה. המניה כבר התרחקה מרמת התמיכה, ולכן עדיף להמתין לחזרה לאזור 439-440 דולר. במקרה כזה עשויה להיווצר הזדמנות ביחס סיכוי-סיכון של כ-1:4.</div>
+  </div>
+
+  <!-- EME -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">EME</span>
+        <div>
+          <div class="company">EMCOR Group</div>
+          <span class="exchange-badge">NYSE</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3AEME" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3AEME" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <polyline points="0,130 40,118 80,108 120,95 160,102 200,88 240,80 280,85 320,72 360,68 400,75" fill="none" stroke="#26c281" stroke-width="2" stroke-linejoin="round"/>
+          <polygon points="0,130 40,118 80,108 120,95 160,102 200,88 240,80 280,85 320,72 360,68 400,75 400,175 0,175" fill="url(#g-eme)" opacity="0.2"/>
+          <line x1="0" y1="95" x2="400" y2="95" stroke="#ffc400" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.45"/>
+          <text x="200" y="100" fill="rgba(255,255,255,0.04)" font-size="52" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">EME</text>
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+          <defs>
+            <linearGradient id="g-eme" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#26c281"/>
+              <stop offset="100%" stop-color="#26c281" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag">תמיכה</span>
+      <span class="tag">מגמת עלייה</span>
+      <span class="ratio-badge">🎯 יחס 1:2.5</span>
+    </div>
+    <div class="analysis">המניה שומרת על מגמת עלייה ברורה ונמצאת באזור מעניין למעקב. כל עוד התמיכה נשמרת, היא ממשיכה להיות רלוונטית עם יחס סיכוי-סיכון של כ-1:2.5.</div>
+  </div>
+
+  <!-- MIR -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">MIR</span>
+        <div>
+          <div class="company">Mirion Technologies</div>
+          <span class="exchange-badge">NYSE</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3AMIR" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3AMIR" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <!-- Candles with wicks -->
+          <polyline points="0,100 40,95 80,110 120,105 160,115 200,108 240,100 280,95 320,88 360,82 400,78" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Wicks (buying interest) -->
+          <line x1="80" y1="110" x2="80" y2="130" stroke="#e74c3c" stroke-width="1.5" opacity="0.6"/>
+          <line x1="160" y1="115" x2="160" y2="138" stroke="#e74c3c" stroke-width="1.5" opacity="0.6"/>
+          <line x1="280" y1="95" x2="280" y2="118" stroke="#e74c3c" stroke-width="1.5" opacity="0.6"/>
+          <!-- 61.8% level -->
+          <line x1="0" y1="75" x2="400" y2="75" stroke="#26c281" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+          <text x="8" y="71" fill="#26c281" font-size="9" font-family="Heebo,sans-serif" opacity="0.8">פריצה Fib 61.8% — אזור כניסה ~$19.5</text>
+          <text x="200" y="100" fill="rgba(255,255,255,0.04)" font-size="52" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">MIR</text>
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag">פיבו 61.8%</span>
+      <span class="wait-chip">⏳ ממתין לפריצה ~$19.5</span>
+    </div>
+    <div class="analysis">מומלץ להסתכל על הגרף החודשי. ניתן לראות שהנמוכים האחרונים נשארים כפתילים בלבד, דבר המעיד על ביקושים. באופן אישי הייתי מעדיף לראות פריצה מעל רמת פיבונאצ'י 61.8% ורק לאחר מכן לחפש כניסה. אזור מעניין נמצא סביב 19.5 דולר.</div>
+  </div>
+
+  <!-- ORLY -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">ORLY</span>
+        <div>
+          <div class="company">O'Reilly Automotive</div>
+          <span class="exchange-badge">NASDAQ</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3AORLY" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3AORLY" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <!-- Multiple tests of support -->
+          <polyline points="0,80 40,85 80,100 120,88 160,100 200,85 240,98 280,86 320,99 360,84 400,78" fill="none" stroke="#26c281" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Support line tested multiple times -->
+          <line x1="0" y1="100" x2="400" y2="100" stroke="#ffc400" stroke-width="2" stroke-dasharray="5,3" opacity="0.6"/>
+          <text x="8" y="96" fill="#ffc400" font-size="9" font-family="Heebo,sans-serif" opacity="0.8">תמיכה חזקה — נבחנה מספר פעמים</text>
+          <text x="200" y="100" fill="rgba(255,255,255,0.04)" font-size="42" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">ORLY</text>
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag">תמיכה</span>
+      <span class="ratio-badge">🎯 יחס 1:2</span>
+    </div>
+    <div class="analysis">המניה ממשיכה לשמור על רמת תמיכה משמעותית שנבחנה מספר רב של פעמים. כל עוד התמיכה לא נשברת, אין סיבה להניח שהיא תיכשל. יחס סיכוי-סיכון פוטנציאלי עד השיא האחרון עומד על כ-1:2.</div>
+  </div>
+
+  <!-- PLMR -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">PLMR</span>
+        <div>
+          <div class="company">Palomar Holdings</div>
+          <span class="exchange-badge">NASDAQ</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3APLMR" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3APLMR" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <!-- Range / consolidation -->
+          <polyline points="0,80 40,75 80,85 120,70 160,78 200,65 240,72 280,68 320,75 360,70 400,65" fill="none" stroke="#26c281" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Resistance top of range -->
+          <line x1="0" y1="65" x2="400" y2="65" stroke="#26c281" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+          <text x="8" y="61" fill="#26c281" font-size="9" font-family="Heebo,sans-serif" opacity="0.7">חלק עליון דשדוש</text>
+          <!-- Support bottom -->
+          <line x1="0" y1="100" x2="400" y2="100" stroke="#ffc400" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+          <text x="8" y="114" fill="#ffc400" font-size="9" font-family="Heebo,sans-serif" opacity="0.7">תמיכה תחתית</text>
+          <!-- Slight breach below support -->
+          <polyline points="200,65 220,80 240,95 260,105 280,100 300,92 320,82 340,75 360,70 400,65" fill="none" stroke="#e74c3c" stroke-width="1" stroke-dasharray="2,2" opacity="0.4"/>
+          <text x="200" y="100" fill="rgba(255,255,255,0.04)" font-size="42" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">PLMR</text>
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag">דשדוש</span>
+      <span class="tag">תמיכה</span>
+      <span class="ratio-badge">🎯 יחס 1:3</span>
+    </div>
+    <div class="analysis">אמנם הייתה זליגה קלה מתחת לרמת התמיכה, אך המחיר חזר במהירות לתוך אזור הדשדוש. כל עוד המניה נשארת בתוך הטווח, היא ממשיכה להיות מעניינת. יחס סיכוי-סיכון עד החלק העליון של הדשדוש עומד על כ-1:3.</div>
+  </div>
+
+  <!-- PLTR -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">PLTR</span>
+        <div>
+          <div class="company">פלנטיר</div>
+          <span class="exchange-badge">NASDAQ</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3APLTR" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3APLTR" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <!-- Consolidation / ranging -->
+          <polyline points="0,90 40,82 80,75 120,82 160,68 200,72 240,80 280,70 320,78 360,72 400,75" fill="none" stroke="#58a6ff" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Top resistance -->
+          <line x1="0" y1="65" x2="400" y2="65" stroke="#26c281" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+          <text x="8" y="61" fill="#26c281" font-size="9" font-family="Heebo,sans-serif" opacity="0.7">התנגדות עליונה</text>
+          <!-- Bottom support -->
+          <line x1="0" y1="95" x2="400" y2="95" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+          <text x="8" y="109" fill="#e74c3c" font-size="9" font-family="Heebo,sans-serif" opacity="0.7">תמיכה תחתונה</text>
+          <text x="200" y="100" fill="rgba(255,255,255,0.04)" font-size="48" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">PLTR</text>
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag">דשדוש</span>
+      <span class="wait-chip">⏳ ממתין לפריצה / שבירה</span>
+    </div>
+    <div class="analysis">המניה ממשיכה לדשדש בתוך הטווח שהוזכר בשבועות האחרונים. אין שינוי מהותי בתמונה הטכנית, ולכן ממשיכים לעקוב אחר פריצה או שבירה של הדשדוש.</div>
+  </div>
+
+  <!-- SEDG -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">SEDG</span>
+        <div>
+          <div class="company">סולאראדג'</div>
+          <span class="exchange-badge">NASDAQ</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3ASEDG" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3ASEDG" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <!-- Bounce from support on Friday -->
+          <polyline points="0,100 40,108 80,115 120,120 160,125 200,130 240,135 280,130 320,120 360,100 400,75" fill="none" stroke="#26c281" stroke-width="2.5" stroke-linejoin="round"/>
+          <polygon points="0,100 40,108 80,115 120,120 160,125 200,130 240,135 280,130 320,120 360,100 400,75 400,175 0,175" fill="url(#g-sedg)" opacity="0.2"/>
+          <!-- Support zone $52-53 -->
+          <rect x="0" y="120" width="400" height="18" fill="rgba(38,194,129,0.05)"/>
+          <line x1="0" y1="120" x2="400" y2="120" stroke="#26c281" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+          <line x1="0" y1="138" x2="400" y2="138" stroke="#26c281" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+          <text x="8" y="133" fill="#26c281" font-size="9" font-family="Heebo,sans-serif" opacity="0.7">$52-53 — אזור תיקון מעניין</text>
+          <text x="200" y="90" fill="rgba(255,255,255,0.04)" font-size="42" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">SEDG</text>
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+          <defs>
+            <linearGradient id="g-sedg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#26c281"/>
+              <stop offset="100%" stop-color="#26c281" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag">תמיכה</span>
+      <span class="wait-chip">⏳ ממתין לתיקון $52-53</span>
+      <span class="ratio-badge">🎯 יחס 1:4</span>
+    </div>
+    <div class="analysis">המניה זינקה מאזור התמיכה ביום שישי האחרון. במידה ויתקבל תיקון נוסף לאזור 52-53 דולר, עשויה להיווצר הזדמנות מעניינת עם יחס סיכוי-סיכון של כ-1:4 עד השיא האחרון.</div>
+  </div>
+
+  <!-- TW -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">TW</span>
+        <div>
+          <div class="company">Tradeweb Markets</div>
+          <span class="exchange-badge">NASDAQ</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3ATW" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3ATW" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <polyline points="0,70 40,78 80,88 120,80 160,92 200,82 240,90 280,82 320,88 360,82 400,88" fill="none" stroke="#58a6ff" stroke-width="2" stroke-linejoin="round"/>
+          <line x1="0" y1="90" x2="400" y2="90" stroke="#ffc400" stroke-width="2" stroke-dasharray="5,3" opacity="0.5"/>
+          <text x="8" y="86" fill="#ffc400" font-size="9" font-family="Heebo,sans-serif" opacity="0.7">תמיכה — ממתין לאישור קונים</text>
+          <!-- Big volume bar 2 weeks ago -->
+          <rect x="220" y="145" width="12" height="25" fill="#58a6ff" opacity="0.5" rx="2"/>
+          <rect x="260" y="155" width="12" height="15" fill="#8b949e" opacity="0.35" rx="2"/>
+          <rect x="300" y="157" width="12" height="13" fill="#8b949e" opacity="0.35" rx="2"/>
+          <rect x="340" y="158" width="12" height="12" fill="#8b949e" opacity="0.35" rx="2"/>
+          <rect x="380" y="158" width="12" height="12" fill="#8b949e" opacity="0.35" rx="2"/>
+          <text x="200" y="100" fill="rgba(255,255,255,0.04)" font-size="60" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">TW</text>
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag">תמיכה</span>
+      <span class="wait-chip">⏳ ממתין לאישור קונים</span>
+      <span class="ratio-badge">🎯 יחס 1:3</span>
+    </div>
+    <div class="analysis">המניה שומרת על רמת התמיכה וחוזרת שוב לאזור מעניין. למרות זאת, במקרה הזה עדיף להמתין לאישור מהקונים. לפני שבועיים ראינו כניסת ווליום משמעותית, אך השבוע האחרון היה חלש יחסית. יחס סיכוי-סיכון פוטנציאלי עומד על כ-1:3.</div>
+  </div>
+
+  <!-- VIV -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">VIV</span>
+        <div>
+          <div class="company">Telefônica Brasil</div>
+          <span class="exchange-badge">NYSE</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3AVIV" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3AVIV" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <!-- Historical breakout (2012) then retest -->
+          <polyline points="0,70 40,65 80,68 120,72 160,70 200,75 240,80 280,75 320,72 360,78 400,82" fill="none" stroke="#58a6ff" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Old resistance now support -->
+          <line x1="0" y1="72" x2="400" y2="72" stroke="#ffc400" stroke-width="2" stroke-dasharray="4,3" opacity="0.6"/>
+          <text x="8" y="68" fill="#ffc400" font-size="9" font-family="Heebo,sans-serif" opacity="0.8">שיא 2012 — ריטסט + Fib 38.2%</text>
+          <!-- 38.2% level -->
+          <line x1="0" y1="80" x2="400" y2="80" stroke="#26c281" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+          <text x="200" y="100" fill="rgba(255,255,255,0.04)" font-size="52" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">VIV</text>
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag">ריטסט</span>
+      <span class="tag">פיבו 38.2%</span>
+      <span class="wait-chip">⏳ ממתין לאישור</span>
+    </div>
+    <div class="analysis">ריטסט מעניין ברמה החודשית על שיא שנפרץ עוד בשנת 2012, בשילוב רמת פיבונאצ'י 38.2%. השבוע האחרון היה חלש יחסית ולכן מומלץ להמתין לאישור שהלחץ כלפי מטה הסתיים לפני חיפוש כניסה. מניה מעניינת מאוד למעקב.</div>
+  </div>
+
+</div><!-- /stocks-grid longs -->
+
+<!-- ===== SHORTS ===== -->
+<div class="section-header shorts">📉&nbsp; שורט — מניות למכירה בחסר</div>
+<div class="stocks-grid">
+
+  <!-- NVO -->
+  <div class="card short">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">NVO</span>
+        <div>
+          <div class="company">Novo Nordisk</div>
+          <span class="exchange-badge">NYSE</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3ANVO" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NYSE%3ANVO" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <!-- Downtrend -->
+          <polyline points="0,30 40,40 80,55 120,48 160,65 200,72 240,60 280,75 320,65 360,72 400,68" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linejoin="round"/>
+          <polygon points="0,30 40,40 80,55 120,48 160,65 200,72 240,60 280,75 320,65 360,72 400,68 400,0 0,0" fill="url(#g-nvo)" opacity="0.2"/>
+          <!-- Old support now resistance — retest -->
+          <line x1="0" y1="68" x2="400" y2="68" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,3" opacity="0.6"/>
+          <text x="8" y="64" fill="#e74c3c" font-size="9" font-family="Heebo,sans-serif" opacity="0.8">התנגדות — ריטסט שורט קלאסי</text>
+          <!-- Downtrend line -->
+          <line x1="0" y1="30" x2="400" y2="90" stroke="#e74c3c" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>
+          <text x="200" y="100" fill="rgba(255,255,255,0.04)" font-size="52" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">NVO</text>
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+          <defs>
+            <linearGradient id="g-nvo" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#e74c3c"/>
+              <stop offset="100%" stop-color="#e74c3c" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag short">📉 שורט</span>
+      <span class="tag">ריטסט</span>
+    </div>
+    <div class="analysis">מגמת הירידה נותרת ברורה. המחיר חזר לבצע ריטסט לאזור תמיכה משמעותי שנשבר בעבר והפך להתנגדות. מדובר בתרחיש קלאסי של ריטסט שורט.</div>
+  </div>
+
+  <!-- WGS -->
+  <div class="card short">
+    <div class="card-header">
+      <div class="card-header-right">
+        <span class="ticker">WGS</span>
+        <div>
+          <div class="company">GeneDx Holdings</div>
+          <span class="exchange-badge">NASDAQ</span>
+        </div>
+      </div>
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3AWGS" target="_blank" class="tv-link" title="פתח בטריידינג וויו">📈</a>
+    </div>
+    <div class="chart-area">
+      <a href="https://www.tradingview.com/chart/?symbol=NASDAQ%3AWGS" target="_blank">
+        <svg class="chart-svg-wrap" viewBox="0 0 400 175" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <rect width="400" height="175" fill="#0a0d14"/>
+          <line x1="0" y1="43" x2="400" y2="43" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="87" x2="400" y2="87" stroke="#1a1f2a" stroke-width="1"/>
+          <line x1="0" y1="131" x2="400" y2="131" stroke="#1a1f2a" stroke-width="1"/>
+          <!-- Downtrend, broken support, retest -->
+          <polyline points="0,25 40,35 80,50 120,62 160,75 200,65 240,55 280,60 320,68 360,72 400,78" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linejoin="round"/>
+          <polygon points="0,25 40,35 80,50 120,62 160,75 200,65 240,55 280,60 320,68 360,72 400,78 400,0 0,0" fill="url(#g-wgs)" opacity="0.2"/>
+          <!-- Old support -->
+          <line x1="0" y1="62" x2="400" y2="62" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,3" opacity="0.6"/>
+          <text x="8" y="58" fill="#e74c3c" font-size="9" font-family="Heebo,sans-serif" opacity="0.8">תמיכה שנשברה → התנגדות</text>
+          <!-- Target ~55 -->
+          <line x1="0" y1="115" x2="400" y2="115" stroke="#ffc400" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+          <text x="8" y="129" fill="#ffc400" font-size="9" font-family="Heebo,sans-serif" opacity="0.7">~$55 — אזור שורט</text>
+          <text x="200" y="100" fill="rgba(255,255,255,0.04)" font-size="52" font-family="Heebo,sans-serif" font-weight="800" text-anchor="middle" dominant-baseline="middle">WGS</text>
+          <text x="370" y="25" fill="rgba(255,255,255,0.2)" font-size="12" font-family="sans-serif" text-anchor="middle">TV ↗</text>
+          <defs>
+            <linearGradient id="g-wgs" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#e74c3c"/>
+              <stop offset="100%" stop-color="#e74c3c" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </a>
+    </div>
+    <div class="chart-hint">🔍 לחיצה על הגרף פותחת בטריידינג וויו</div>
+    <div class="tags-row">
+      <span class="tag short">📉 שורט</span>
+      <span class="tag">ריטסט</span>
+      <span class="wait-chip">⏳ ממתין לחולשה ~$55</span>
+    </div>
+    <div class="analysis">גם כאן מגמת הירידה ברורה. רמת תמיכה משמעותית נשברה והמחיר חזר כלפי מעלה לבצע ריטסט. הייתי מעדיף לראות תחילה המשך חולשה לכיוון אזור 55 דולר ורק לאחר מכן לחפש כניסת שורט, עם סטופ מעל השיא האחרון.</div>
+  </div>
+
+</div><!-- /stocks-grid shorts -->
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="risk-warning">
+    ⚠️ לא צריך להיות בפומו ולא חייבים להיכנס לכל עסקה. עדיף לבחור 2-3 מניות איכותיות, להמתין בסבלנות לתרחיש המתאים ולפעול בהתאם לתוכנית המסחר ולניהול הסיכונים שלכם.
+  </div>
+  <div class="footer-copy">📊 CyclesTrading • ניתוח זה אינו המלצת השקעה • כל המסחר בסיכון אישי • 22.6.2026</div>
+</footer>
+
+<!-- Lightbox (for future chart images) -->
+<div id="lightbox">
+  <div id="lightbox-close" onclick="closeLb()">✕</div>
+  <img id="lb-img" src="" alt="גרף מוגדל">
+</div>
+
+<script>
+function openLb(src) {
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLb() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLb();
+});
+</script>
+</body>
+</html>
